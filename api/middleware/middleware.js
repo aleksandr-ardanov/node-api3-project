@@ -3,7 +3,7 @@ const Users = require('../users/users-model');
 
 function logger(req, res, next) {
   const time = new Date().toISOString();
-  console.log(`req method: '${req.method}', req url: '${req.url}', time: [${time}]`);
+  console.log(` req method: '${req.method}' \n req url: '${req.url}' \n time: [${time}]`);
   next();
 }
 
