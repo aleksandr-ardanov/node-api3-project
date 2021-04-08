@@ -47,10 +47,9 @@ router.put('/:id', validatePostId, validatePost, (req, res, next) => {
 
 router.delete('/:id', validatePostId, async (req, res, next) => {
   const id = req.params.id;
-  const oldPost = await (Posts.getById(id));
   Posts.remove(id)
     .then(() => {
-      res.status(200).json({message:'this post successfully deleted', "post": oldPost});
+      res.status(200).json({message:'this post successfully deleted', "post": req.post});
     })
     .catch(err => {
       next(err);
