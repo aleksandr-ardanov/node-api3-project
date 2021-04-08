@@ -100,6 +100,7 @@ router.post('/:id/posts', validateUserId, validatePost, (req, res, next) => {
 });
 
 
+
 // eslint-disable-next-line no-unused-vars
 router.use((err,req,res,next) => {
   res.status(500).json({
@@ -107,6 +108,8 @@ router.use((err,req,res,next) => {
     error:err.message
   })
 })
+
+
 
 // do not forget to export the router
 module.exports = router;

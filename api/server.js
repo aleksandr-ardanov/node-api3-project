@@ -1,15 +1,20 @@
 const express = require('express');
 const {logger} = require('./middleware/middleware');
-const router = require('./users/users-router');
+const usersRouter = require('./users/users-router');
+const postsRouter = require('./posts/posts-router');
 const helmet = require('helmet');
+
 const server = express();
 
 server.use(express.json());
 server.use(logger);
 server.use(helmet());
 
-server.use('/api/users', router);
-
+server.use('/api/users', usersRouter);
+server.use('/api/posts', postsRouter);
+server.use('*', (req,res) => {
+  res.status(404).json({message:"page not found"})
+})
 
 // global middlewares and the user's router need to be connected here
 
