@@ -20,13 +20,13 @@ server.use('/api/users', usersRouter);
 server.use('/api/posts', postsRouter);
 
 
-// server.get('/', (_, res) => {
-//   res.send(`<h1>It's working</h1>`);
-// });
-
-server.get('*', (_,res) => {
-  res.status(404).json({message:"page not found"})
+server.get('/', (_, res) => {
+  res.send(`<h1>It's working</h1>`);
 });
+
+// server.use('*', (_,res) => {
+//   res.status(404).json({message:"page not found"})
+// });
 
 
 
