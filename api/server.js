@@ -1,12 +1,15 @@
 require("dotenv").config();
 const express = require('express');
+const cors = require("cors")
 const {logger} = require('./middleware/middleware');
 const usersRouter = require('./users/users-router');
 const postsRouter = require('./posts/posts-router');
 const helmet = require('helmet');
-const cors = require("cors")
 
 const server = express();
+
+const port = process.env.PORT || 9000;
+
 
 server.use(express.json());
 server.use(logger);
@@ -22,4 +25,4 @@ server.use('*', (req,res) => {
 // global middlewares and the user's router need to be connected here
 
 
-module.exports = server;
+module.exports = {server, port};
