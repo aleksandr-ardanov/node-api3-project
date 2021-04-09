@@ -24,7 +24,7 @@ server.use('/api/posts', postsRouter);
 //   res.send(`<h1>It's working</h1>`);
 // });
 
-server.use('*', (_,res) => {
+server.get('*', (_,res) => {
   res.status(404).json({message:"page not found"})
 });
 
